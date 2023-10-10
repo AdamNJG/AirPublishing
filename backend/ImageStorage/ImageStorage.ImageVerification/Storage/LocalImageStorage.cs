@@ -13,9 +13,9 @@ namespace ImageStorage.ImageVerification.Storage
             _configuration = configuration;
         }
 
-    public Task<string> StoreImage(ImageUploadOutputDto outputDto)
+        public Task<string> StoreImage(ImageUploadOutputDto outputDto)
         {
-            string directory = _configuration["LocalDirectory"];
+            string directory = Path.GetFullPath(_configuration["LocalDirectory"]);
             string fileName = $"{outputDto.UserId}_{outputDto.FileName}";
 
             if (!Directory.Exists(directory))

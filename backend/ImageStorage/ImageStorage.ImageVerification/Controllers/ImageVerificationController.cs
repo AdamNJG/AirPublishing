@@ -1,10 +1,12 @@
 using ImageStorage.ImageVerification.ImageValidation.dto;
 using ImageStorage.ImageVerification.Service;
 using ImageStorage.ImageVerification.Service.status;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ImageStorage.ImageVerification.Controllers
 {
+    [EnableCors]
     [ApiController]
     [Route("api/[controller]")]
     public class ImageVerificationController : ControllerBase

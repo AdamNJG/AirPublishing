@@ -41,6 +41,17 @@ namespace ImageStorage.Application
             {
                 options.UseInMemoryDatabase("ImageUploadStore");
             });
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:3000") // this is obviously just for testing
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                    });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -54,6 +65,8 @@ namespace ImageStorage.Application
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
