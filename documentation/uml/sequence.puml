@@ -1,0 +1,11 @@
+@startuml
+    participant ui 
+    participant imageValidation as iv
+    participant Database as db
+    participant BlobStorage as bs
+    
+    ui -> iv
+    iv -> db : recording validation success
+    iv -> bs : on validation success
+    iv -> ui : validation message
+@enduml

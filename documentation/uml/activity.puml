@@ -1,0 +1,16 @@
+@startuml
+start
+:user uploads image with email address;
+
+if (photo uploaded to server) then (success)
+    :success message 
+    including image;
+else (failure)
+    :failure message 
+    excluding image;
+endif
+
+:message sent back to user;
+
+end
+@enduml

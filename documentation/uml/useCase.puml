@@ -1,0 +1,14 @@
+@startuml
+actor User as u
+package ImageUpload{
+usecase "Upload image" as upload
+}
+
+actor database as db 
+actor storage as s
+
+u -> upload
+upload -> db
+upload -> s
+
+@enduml
